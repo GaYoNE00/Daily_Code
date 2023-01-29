@@ -1,52 +1,38 @@
+package daliy_code;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Day_1_2023_01_27 {
+public class Day_12 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> rslist = new ArrayList<Integer>();
 
-		int get;
-		int max;
-
-		List<Integer> seq = new ArrayList<>();
-		List<String> ans = new ArrayList<>();
-
-		System.out.print("ÃÖ´ë°ªÀ» ÁöÁ¤ÇÏ¼¼¿ä : ");
-		max = sc.nextInt();
-		int I = 1;
+		System.out.print("ìµœëŒ€ê°’ì„ ì •í•´ì£¼ì„¸ìš” : ");
+		int max = sc.nextInt();
 		for (int i = 1; i <= max; i++) {
-
-			System.out.print("°ªÀ» ÁöÁ¤ÇÏ¼¼¿ä : ");
-			get = sc.nextInt();
-			int j = 1;
-
-			while (j <= get) {
-				j++;
-				if (seq.isEmpty()) {
-					seq.add(I++);
-					ans.add("+");
-				}
-				if (Collections.max(seq) == get) {
-					seq.remove(seq.size() - 1);
-					ans.add("-");
-					break;
-				} else if (I <= get) {
-					seq.add(I++);
-					ans.add("+");
-
-				} else {
-					System.out.println("NO");
-					i--;
-					break;
-
-				}
-			}
-
+			list.add(sc.nextInt());
+			rslist.add(0);
 		}
-		System.out.println(ans);
+		list.add(0);
+		for (int j = 0; j <= max - 1; j++) {
+			for (int t = 1; t <= max - j; t++) {
+				if (list.get(j) < list.get(j + t)) {
+					rslist.set(j, list.get(j + t));
+					break;
+				} else {
+					rslist.set(j, -1);
+				}
+				System.out.println(list.get(j) + " < " + list.get(j + 1));
+			}
+		}
+		list.remove(max);
+
+		System.out.println("ì…ë ¥ ê°’ = " + list);
+		System.out.println("ì¶œë ¥ ê°’ = " + rslist);
 
 	}
 
