@@ -52,6 +52,7 @@ class Main {
 			for(int j = 0; j<=in_a.size()-1; j++) {
 				if(in_b.get(i)==in_a.get(j)) {
 					result = 1;
+					
 					break;
 				}else {
 					result = 0;					
