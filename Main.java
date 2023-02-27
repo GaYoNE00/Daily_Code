@@ -55,7 +55,8 @@ class Main {
 					
 					break;
 				}else {
-					result = 0;					
+					result = 0;	
+					
 				}
 			}
 			System.out.println(result);
